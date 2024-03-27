@@ -38,6 +38,10 @@ const TicTacToe = () => {
                 setWinner(cellA);
                 break;
             }
+            else if (cells.every(cell => cell)){
+                setRound(true);
+                setWinner('Draw');
+            }
         }
     };
 
@@ -72,7 +76,7 @@ const TicTacToe = () => {
             <h1 className="title">Tic Tac Toe Game by <span>Sanket</span></h1>
             <div className='announcement'>
                 {!round && <h2>It's {turn}'s turn</h2>}
-                {round && <h2>{winner} IS THE WINNER !!!</h2>}
+                {round && (<h2>{winner === 'Draw'? 'Match is Drwan':`${winner} IS THE WINNER !!`}</h2>)}
             </div>
             <div className='board'>
                 <Cell num={0} />
